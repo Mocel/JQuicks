@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="quicks">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <property name="target.dir" value="bin"/>
+    <path id="quicks.classpath">
+        <pathelement location="bin"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete>
+            <fileset dir="${target.dir}" includes="*.class"/>
+            <fileset dir="${target.dir}" includes="*.html"/>
+        </delete>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-project, allocate-resources" name="build"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac encoding="UTF-8" debug="true" debuglevel="${debuglevel}" destdir="${target.dir}" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="quicks.classpath"/>
+        </javac>
+    </target>
+    <target depends="init" name="allocate-resources">
+        <copy todir="${target.dir}/CG">
+            <fileset dir="CG"/>
+        </copy>
+        <copy todir="${target.dir}/next_stage">
+            <fileset dir="next_stage"/>
+        </copy>
+        <copy todir="${target.dir}/sound">
+            <fileset dir="sound"/>
+        </copy>
+        <copy todir="${target.dir}">
+            <fileset file="Quicks.html"/>
+        </copy>
+    </target>
+    <target depends="build" name="Quicks">
+        <java classname="sun.applet.AppletViewer" dir="bin" failonerror="true" fork="yes">
+            <arg line="Quicks.html"/>
+        </java>
+    </target>
+</project>
