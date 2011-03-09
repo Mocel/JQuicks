@@ -1,268 +1,268 @@
 /***********************************************************************************
-JAVA�N�C�b�N�X�J��SDK 1.4
-�y����z�r�c�v���_�N�V����
-�y�J�����zEclipse 3.1 
+JAVAクイックス開発SDK 1.4
+【製作】池田プロダクション
+【開発環境】Eclipse 3.1 
               & JDK1.5.1 Released by SunMicrosystems Company.
-�y�Ώۊ��zWindows98/Me/2000/NT/XP JAVA���s�Ή�IE
-�y�K�v�Œ���zCPU Pentium2   300 MHz
-              �@�@������       64  MB
-�y�������z�@�@CPU Pentium3   500 MHz
-�@�@�@�@�@�@�@�@�@�������@�@�@ 128 MB
-�y�t�@�C�����z quicks_sdk.zip
-�y�O��\�t�g�z JAVA �Ή� WWW �u���E�U
-�y�]�ڂ̉ہz �z�[���y�[�W�ł̌f�ڑ劽�}�ł��B����񂶂��g���ĉ������܂�m(_ _)m
-�y�����E�C���z �\�[�X�t�@�C���̉����E�C�����s�����R�Ɏg�p���ĉ������B
+【対象環境】Windows98/Me/2000/NT/XP JAVA実行対応IE
+【必要最低環境】CPU Pentium2   300 MHz
+              　　メモリ       64  MB
+【推奨環境】　　CPU Pentium3   500 MHz
+　　　　　　　　　メモリ　　　 128 MB
+【ファイル名】 quicks_sdk.zip
+【前提ソフト】 JAVA 対応 WWW ブラウザ
+【転載の可否】 ホームページでの掲載大歓迎です。じゃんじゃん使って下さいませm(_ _)m
+【改造・修正】 ソースファイルの改造・修正を行い自由に使用して下さい。
 *************************************************************************************/
-�u�N�C�b�N�X�v�͂���TAITO���o���Ă����uQix�v��͂����Q�[���ł��B
-�v�͕ǂ���w�n���Q�[���ŁA���@�𑀍삵�ė̒n���͂����݈��ȏ㎩�̈�Ƃ��Ĉ͂����ނ��Ƃ�
-�Q�[���N���A�[�ƂȂ�܂��B���̍ۓG�ɐڐG����Ǝ��S���܂��B
-��肭�G���悯�A���̈���݂͂��݁A�N���A�[��ڎw���܂��傤�B
+「クイックス」はかつてTAITOが出していた「Qix」を模したゲームです。
+要は壁きり陣地取りゲームで、自機を操作して領地を囲い込み一定以上自領域として囲い込むことで
+ゲームクリアーとなります。その際敵に接触すると死亡します。
+上手く敵をよけつつ、自領域を囲みこみ、クリアーを目指しましょう。
 
-���@�͍ŏ���ԍ���ɂ��܂��B���L�[�Ł@���@�̑���B
-CTRL�����Ȃ���؂�o���܂��B�@�͂񂾐w�n�͎��̈�ɁE�E�E
-�G�����̈�Ɉ͂����ނƎE���܂��B�@�@�������A�G�Ɏ����A�������͐؂��蒆�̗ΐ����G��Ă����S���܂��B
-�S�̂�85%�ȏ�@���̈�Ƃ��Ĉ͂����ނ��ƂŃN���A�[�ƂȂ�܂��B
-�L�[�{�[�h��[R]�������ƃQ�[�����ċN�����܂��B
+自機は最初一番左上にいます。矢印キーで　自機の操作。
+CTRL押しながら切り出せます。　囲んだ陣地は自領域に・・・
+敵を自領域に囲い込むと殺せます。　　ただし、敵に自分、もしくは切り取り中の緑線が触れても死亡します。
+全体の85%以上　自領域として囲い込むことでクリアーとなります。
+キーボードの[R]を押すとゲームを再起動します。
 
-�v���C����ɂ͕K�v�Ȋe�t�@�C����HP�ɔz�u���� index.html���J����OK�ł��B
-�������AJAVA�A�v���b�g�͈ꉞ�A�v���P�[�V�����Ȃ̂Ńt�@�C���̃p�[�e�B�V�����ݒ肪
-��������o���Ă��Ȃ��Ɛ���ɋN�����܂���B���ӂ��Ă��������B
-�K�v�ȃp�[�e�B�V�����ݒ�͈ȉ��̒ʂ�ł��B
+プレイするには必要な各ファイルをHPに配置して index.htmlを開けばOKです。
+ただし、JAVAアプレットは一応アプリケーションなのでファイルのパーティション設定が
+しっかり出来ていないと正常に起動しません。注意してください。
+必要なパーティション設定は以下の通りです。
 
-+----CG 755 (�Q�[�����Ŏg���摜�t�@�C�������܂��B)
++----CG 755 (ゲーム中で使う画像ファイルを入れます。)
  |    |
  |    |
  |    |----back.jpg 644
  |    |----front.jpg 644
- |    |----teki0.jpg 644�@(�E�E�E�Ȃǂ̂悤�ɉ摜�t�@�C���������Ă��܂�)
+ |    |----teki0.jpg 644　(・・・などのように画像ファイルが入っています)
  |
  |
- |---sound 755�@(�Q�[�����Ŏg�����t�@�C�������܂��B)
+ |---sound 755　(ゲーム中で使う音ファイルを入れます。)
  |      |
  |      |----bgm.wav 644
  |      |----butukari.wav 644
- |      |----gameover.wav 644�@�i�E�E�E�Ȃǂ̂悤�ɉ��t�@�C���������Ă��܂��j
+ |      |----gameover.wav 644　（・・・などのように音ファイルが入っています）
  |
  |
- |---next_stage ���̃Q�[���̊K�w�����̂܂܂��̃t�H���_�ɓ����悤�ɓ�����
- |�@�@�@�@�@�@�@���ꂪ��ʂɂȂ�܂��B
+ |---next_stage このゲームの階層をそのままこのフォルダに同じように入れると
+ |　　　　　　　それが二面になります。
  |
  |
- |-------index.html 644�i���ꂪ�Q�[�����N������HTML�t�@�C���ł��B���O�͕ς��Ă�OK�ł��j
- |-------quicks.jar 644 �v���O�������s�ɕK�v�Ȗ{�̃t�@�C���������Ă��܂��B
+ |-------index.html 644（これがゲームを起動するHTMLファイルです。名前は変えてもOKです）
+ |-------quicks.jar 644 プログラム実行に必要な本体ファイルが入っています。
  |
- |-------quicks.java ����͎����Ń\�[�X�t�@�C���������������l�̂��߂ɓ���Ă�����̂ŃQ�[���̃v���C�ɓ�������
- |�@�@�@�@�@�@�@�@�@ �z�[���y�[�W��ɒu���K�v�͂���܂���B�Q�[���ɂ͊֌W�Ȃ��ł��B
- |-------������.txt ���̃t�@�C�����Q�[���ɂ͊֌W����܂���B
+ |-------quicks.java これは自分でソースファイルを改造したい人のために入れているものでゲームのプレイに当たって
+ |　　　　　　　　　 ホームページ上に置く必要はありません。ゲームには関係ないです。
+ |-------説明書.txt このファイルもゲームには関係ありません。
 
-Windows�pFTP�\�t�g�uFFFTP�v�Ȃǂ��g���̕��͓��Ɉӎ����邱�ƂȂ�
-���̂܂܃t�@�C�����A�b�v���[�h����Ώ���ɂ��̃p�[�e�B�V�����ݒ�ɂȂ�Ǝv���܂��B
+Windows用FTPソフト「FFFTP」などお使いの方は特に意識することなく
+そのままファイルをアップロードすれば勝手にこのパーティション設定になると思います。
 FFFTP:http://www2.biglobe.ne.jp/~sota/
 
-�摜�t�@�C���A�T�E���h�t�@�C����u�������邱�Ƃɂ����
-�D���ȉ摜�A���ł̃J�X�^�}�C�Y���o���܂��B�����R�ɕύX���Ďg���Ă��������B
-�E�e�t�@�C���̐���
-front.jpg �X�e�[�W�̑O�ʉ摜�@640*480��jpg�摜��p�ӂ��Ă��������B
-back.jpg  �X�e�[�W�̔w�ʉ摜�@640*480��jpg�摜��p�ӂ��Ă��������B
-player1.gif�@�@�@�@   ���@�̉摜�ł��B����GIF�`���ɂȂ��Ă��܂��B
-player1_kiri.gif�@    ���@���w�n��؂��蒆�̉摜�ł��B
-teki0.gif�`teki6.gif�@�G�̉摜�ł��B�e7�̂܂ŁB
+画像ファイル、サウンドファイルを置き換えることによって
+好きな画像、音でのカスタマイズが出来ます。ご自由に変更して使ってください。
+・各ファイルの説明
+front.jpg ステージの前面画像　640*480のjpg画像を用意してください。
+back.jpg  ステージの背面画像　640*480のjpg画像を用意してください。
+player1.gif　　　　   自機の画像です。透過GIF形式になっています。
+player1_kiri.gif　    自機が陣地を切り取り中の画像です。
+teki0.gif～teki6.gif　敵の画像です。各7体まで。
 
-bgm.wav               BGM�@wav�`���ł��B
-butukari.wav�@�@�@�@�@�G�ɂԂ������Ƃ��̉��A�܂��G���͂�����œG�����ʂƂ��̉�
-gameover.wav          �Q�[���I�[�o�[���̉�
-kakomi.wav�@�@�@�@�@�@���̈���͂����ނ��Ƃɐ����������̉�
-kiri.wav�@�@�@�@�@�@�@���̈�͂����ݒ��̈ړ���
-quicks.mid�@�@�@�@�@�@BGM�@MIDI�`���ł��B
-stageclear.wav        �X�e�[�W�N���A�[���̉�
-start.wav�@�@�@�@�@�@ �Q�[���J�n���̃X�^�[�g��
+bgm.wav               BGM　wav形式です。
+butukari.wav　　　　　敵にぶつかったときの音、また敵を囲い込んで敵が死ぬときの音
+gameover.wav          ゲームオーバー時の音
+kakomi.wav　　　　　　自領域を囲い込むことに成功した時の音
+kiri.wav　　　　　　　自領域囲い込み中の移動音
+quicks.mid　　　　　　BGM　MIDI形式です。
+stageclear.wav        ステージクリアー時の音
+start.wav　　　　　　 ゲーム開始時のスタート音
 
-�f�t�H���g�ݒ�ł́@�����I�ɂ����̃t�@�C����ǂݍ��݂ɂ����A�v���O���������s����悤�ɂȂ��Ă��܂���
-�����ōD���ȃt�@�C�����g�����Ƃ��o���܂��B
-�A�v���b�g���������� index.html�@�Ȃǂ�HTML�t�@�C�����Ɏ��̋L�q���s���Ă��������B
+デフォルト設定では　自動的にこれらのファイルを読み込みにいき、プログラムを実行するようになっていますが
+自分で好きなファイルを使うことも出来ます。
+アプレットを実装する index.html　などのHTMLファイル内に次の記述を行ってください。
 
 <APPLET CODE="quicks.class" archive="quicks.jar" width=640 height=480>
 
-<!-- �摜�̐ݒ� -->
-<PARAM NAME="player1" VALUE="CG/player1.gif"><!-- ���@�̉摜 -->
-<PARAM NAME="player1_kiri" VALUE="CG/player1_kiri.gif"><!-- ���@�؂��蒆�̉摜 -->
-<PARAM NAME="teki0" VALUE="CG/teki0.gif"><!-- �G1�̉摜 -->
-<PARAM NAME="teki1" VALUE="CG/teki1.gif"><!-- �G2�̉摜 -->
-<PARAM NAME="teki2" VALUE="CG/teki2.gif"><!-- �G3�̉摜 -->
-<PARAM NAME="teki3" VALUE="CG/teki3.gif"><!-- �G4�̉摜 -->
-<PARAM NAME="teki4" VALUE="CG/teki3.gif"><!-- �G5�̉摜 -->
-<PARAM NAME="teki5" VALUE="CG/teki2.gif"><!-- �G6�̉摜 -->
-<PARAM NAME="teki6" VALUE="CG/teki1.gif"><!-- �G7�̉摜 -->
-<PARAM NAME="front" VALUE="CG/front.jpg"><!-- �X�e�[�W�O�ʉ摜(�؂�O�̉摜) -->
-<PARAM NAME="back" VALUE="CG/back.jpg"><!-- �X�e�[�W�w�i�摜(�؂����Ƃ��Ɍ�����摜) -->
-<PARAM NAME="gameclear_URL" VALUE="no"><!-- �N���A�[������Ɏ����I�ɔ�ԃy�[�W��URL�A"no"�Ə����Ă����Ɣ�΂Ȃ� -->
+<!-- 画像の設定 -->
+<PARAM NAME="player1" VALUE="CG/player1.gif"><!-- 自機の画像 -->
+<PARAM NAME="player1_kiri" VALUE="CG/player1_kiri.gif"><!-- 自機切り取り中の画像 -->
+<PARAM NAME="teki0" VALUE="CG/teki0.gif"><!-- 敵1の画像 -->
+<PARAM NAME="teki1" VALUE="CG/teki1.gif"><!-- 敵2の画像 -->
+<PARAM NAME="teki2" VALUE="CG/teki2.gif"><!-- 敵3の画像 -->
+<PARAM NAME="teki3" VALUE="CG/teki3.gif"><!-- 敵4の画像 -->
+<PARAM NAME="teki4" VALUE="CG/teki3.gif"><!-- 敵5の画像 -->
+<PARAM NAME="teki5" VALUE="CG/teki2.gif"><!-- 敵6の画像 -->
+<PARAM NAME="teki6" VALUE="CG/teki1.gif"><!-- 敵7の画像 -->
+<PARAM NAME="front" VALUE="CG/front.jpg"><!-- ステージ前面画像(切る前の画像) -->
+<PARAM NAME="back" VALUE="CG/back.jpg"><!-- ステージ背景画像(切ったときに見える画像) -->
+<PARAM NAME="gameclear_URL" VALUE="no"><!-- クリアーした後に自動的に飛ぶページのURL、"no"と書いておくと飛ばない -->
 
-<!-- ���̐ݒ� -->
-<PARAM NAME="start" VALUE="sound/start.wav"><!-- �Q�[���J�n�̎��ɂȂ炷�� -->
-<PARAM NAME="stageclear" VALUE="sound/stageclear.wav"><!-- �Q�[���N���A�[�̎��ɂȂ炷�� -->
-<PARAM NAME="gameover" VALUE="sound/gameover.wav"><!-- �Q�[���I�[�o�[�̎��ɂȂ炷�� -->
-<PARAM NAME="kiri" VALUE="sound/kiri.wav"><!-- ���@���؂���ړ�����Ƃ��̉� -->
-<PARAM NAME="butukari" VALUE="sound/butukari.wav"><!-- �G�ƂԂ����Ď��ʂƂ��̔����� -->
-<PARAM NAME="kakomi" VALUE="sound/kakomi.wav"><!-- ���̈���͂񂾎��̐����� -->
-<!-- �Q�[���R���t�B�O�ݒ� -->
-<PARAM NAME="parsent" VALUE="75"><!-- ��%�ȏ�؂�ƃN���A�[�ɂ��邩[1�`100] -->
-<PARAM NAME="teki_kazu" VALUE="7"><!-- �G�̐�[0�`7] -->
-<PARAM NAME="teki0_speed" VALUE="4"><!-- �G1�̑���[1�`10] -->
-<PARAM NAME="teki1_speed" VALUE="4"><!-- �G2�̑���[1�`10] -->
-<PARAM NAME="teki2_speed" VALUE="2"><!-- �G3�̑���[1�`10] -->
-<PARAM NAME="teki3_speed" VALUE="3"><!-- �G4�̑���[1�`10] -->
-<PARAM NAME="teki4_speed" VALUE="2"><!-- �G5�̑���[1�`10] -->
-<PARAM NAME="teki5_speed" VALUE="2"><!-- �G6�̑���[1�`10] -->
-<PARAM NAME="teki6_speed" VALUE="1"><!-- �G7�̑���[1�`10] -->
-<PARAM NAME="time" VALUE="1000"><!-- ���Ԑ���[0�`1000(�b)] -->
-<PARAM NAME="kisuu" VALUE="1"><!-- ���@���C�t�|�C���g[1�`99] -->
-<PARAM NAME="stage_clear_massage" VALUE="�X�e�[�W�N���A�[�I�I"><!-- �X�e�[�W�N���A�[���̃��b�Z�[�W -->
-<PARAM NAME="gameover_massage" VALUE="GAME OVER"><!-- �Q�[���I�[�o�[���̃��b�Z�[�W -->
-<PARAM NAME="font" VALUE="24"><!-- �p�����[�^�\���A���b�Z�[�W�̃t�H���g�T�C�Y[18�`72] -->
-<PARAM NAME="color" VALUE="#FFFF80"><!-- �p�����[�^�\���A���b�Z�[�W�̃t�H���g�J���[[#000000�`#FFFFFF] -->
+<!-- 音の設定 -->
+<PARAM NAME="start" VALUE="sound/start.wav"><!-- ゲーム開始の時にならす音 -->
+<PARAM NAME="stageclear" VALUE="sound/stageclear.wav"><!-- ゲームクリアーの時にならす音 -->
+<PARAM NAME="gameover" VALUE="sound/gameover.wav"><!-- ゲームオーバーの時にならす音 -->
+<PARAM NAME="kiri" VALUE="sound/kiri.wav"><!-- 自機が切り取り移動するときの音 -->
+<PARAM NAME="butukari" VALUE="sound/butukari.wav"><!-- 敵とぶつかって死ぬときの爆発音 -->
+<PARAM NAME="kakomi" VALUE="sound/kakomi.wav"><!-- 自領域を囲んだ時の成功音 -->
+<!-- ゲームコンフィグ設定 -->
+<PARAM NAME="parsent" VALUE="75"><!-- 何%以上切るとクリアーにするか[1～100] -->
+<PARAM NAME="teki_kazu" VALUE="7"><!-- 敵の数[0～7] -->
+<PARAM NAME="teki0_speed" VALUE="4"><!-- 敵1の速さ[1～10] -->
+<PARAM NAME="teki1_speed" VALUE="4"><!-- 敵2の速さ[1～10] -->
+<PARAM NAME="teki2_speed" VALUE="2"><!-- 敵3の速さ[1～10] -->
+<PARAM NAME="teki3_speed" VALUE="3"><!-- 敵4の速さ[1～10] -->
+<PARAM NAME="teki4_speed" VALUE="2"><!-- 敵5の速さ[1～10] -->
+<PARAM NAME="teki5_speed" VALUE="2"><!-- 敵6の速さ[1～10] -->
+<PARAM NAME="teki6_speed" VALUE="1"><!-- 敵7の速さ[1～10] -->
+<PARAM NAME="time" VALUE="1000"><!-- 時間制限[0～1000(秒)] -->
+<PARAM NAME="kisuu" VALUE="1"><!-- 自機ライフポイント[1～99] -->
+<PARAM NAME="stage_clear_massage" VALUE="ステージクリアー！！"><!-- ステージクリアー時のメッセージ -->
+<PARAM NAME="gameover_massage" VALUE="GAME OVER"><!-- ゲームオーバー時のメッセージ -->
+<PARAM NAME="font" VALUE="24"><!-- パラメータ表示、メッセージのフォントサイズ[18～72] -->
+<PARAM NAME="color" VALUE="#FFFF80"><!-- パラメータ表示、メッセージのフォントカラー[#000000～#FFFFFF] -->
 
 </APPLET>
 
-������ VALUE=" " �̒l��ς��ĉ������B�@�ԈႦ��NAME=" "�͕ς�����ʖڂł��B
-NAME=" "�͕ς��Ă��܂��ƃQ�[��������ɓ����܂���B�ς���̂�VALUE�ł��B
-��̌����܂�܂Ȃ̂Ł@�ǂ��������Ƃǂ����������ʂ�����邩�͂킩��Ǝv���܂��B
-�������A���̂悤��index.html���ɂ��̂܂܂����̐ݒ������������ł��܂���
-�Q�[���N���A�[���Ɍ����銮���摜�����̂܂܁@index.html����
-<PARAM NAME="back" VALUE="CG/back.jpg"><!-- �X�e�[�W�w�i�摜(�؂����Ƃ��Ɍ�����摜) -->
-�����������Ă��܂��Ɓ@�΂�Ă��܂��܂��i��
+これらの VALUE=" " の値を変えて下さい。　間違えてNAME=" "は変えちゃ駄目です。
+NAME=" "は変えてしまうとゲームが正常に動きません。変えるのはVALUEです。
+大体見たまんまなので　どれをいじるとどういった効果が現れるかはわかると思います。
+しかし、このようにindex.html内にそのままこれらの設定情報を書き込んでしまうと
+ゲームクリアー時に見られる完成画像をそのまま　index.html内の
+<PARAM NAME="back" VALUE="CG/back.jpg"><!-- ステージ背景画像(切ったときに見える画像) -->
+ここを見られてしまうと　ばれてしまいます（汗
 
-�����ŉ摜�̏ꏊ�A�t�@�C�������΂�Ă��܂��̂������B�Ƃ����l��
-�����̋L�q���Ȃ��ĉ������B
-�Ԃ����Ⴏ�A�S���̋L�q���Ȃ���
+そこで画像の場所、ファイル名がばれてしまうのが嫌だ。という人は
+これらの記述を省いて下さい。
+ぶっちゃけ、全部の記述を省いて
 
 <APPLET CODE="quicks.class" archive="quicks.jar" width=640 height=480>
 </APPLET>
 
-�����ł��@�����܂��B
-���̂Ƃ��@�L�q���Ȃ����������̃t�@�C�����͂��ׂăf�t�H���g�����g�p���邱�ƂɂȂ��Ă��܂��B
-�f�t�H���g���͈ȉ��̒ʂ�ł��B
+だけでも　動きます。
+このとき　記述しなかった部分のファイル名はすべてデフォルト名を使用することになっています。
+デフォルト名は以下の通りです。
 
-CG/player1.gif ���@�̉摜
-CG/player1_kiri.gif ���@�؂��蒆�̉摜
-CG/teki0.gif �G1�̉摜
-CG/teki1.gif �G2�̉摜
-CG/teki2.gif �G3�̉摜
-CG/teki3.gif �G4�̉摜
-CG/teki4.gif �G5�̉摜
-CG/teki5.gif �G6�̉摜
-CG/teki6.gif �G7�̉摜
-CG/front.jpg �X�e�[�W�O�ʉ摜(�؂�O�̉摜)
-CG/back.jpg �X�e�[�W�w�i�摜(�؂����Ƃ��Ɍ�����摜)
-no �N���A�[������Ɏ����I�ɔ�ԃy�[�W��URL�A"no"�Ə����Ă����Ɣ�΂Ȃ�
+CG/player1.gif 自機の画像
+CG/player1_kiri.gif 自機切り取り中の画像
+CG/teki0.gif 敵1の画像
+CG/teki1.gif 敵2の画像
+CG/teki2.gif 敵3の画像
+CG/teki3.gif 敵4の画像
+CG/teki4.gif 敵5の画像
+CG/teki5.gif 敵6の画像
+CG/teki6.gif 敵7の画像
+CG/front.jpg ステージ前面画像(切る前の画像)
+CG/back.jpg ステージ背景画像(切ったときに見える画像)
+no クリアーした後に自動的に飛ぶページのURL、"no"と書いておくと飛ばない
 
-sound/start.wav �Q�[���J�n�̎��ɂȂ炷��
-sound/stageclear.wav �Q�[���N���A�[�̎��ɂȂ炷��
-sound/gameover.wav �Q�[���I�[�o�[�̎��ɂȂ炷��
-sound/kiri.wav ���@���؂���ړ�����Ƃ��̉�
-sound/butukari.wav �G�ƂԂ����Ď��ʂƂ��̔�����
-sound/kakomi.wav ���̈���͂񂾎��̐�����
+sound/start.wav ゲーム開始の時にならす音
+sound/stageclear.wav ゲームクリアーの時にならす音
+sound/gameover.wav ゲームオーバーの時にならす音
+sound/kiri.wav 自機が切り取り移動するときの音
+sound/butukari.wav 敵とぶつかって死ぬときの爆発音
+sound/kakomi.wav 自領域を囲んだ時の成功音
 
-��%�ȏ�؂�ƃN���A�[�ɂ��邩[1�`100] 85%
-�G�̐� 7
-�G1�`7�܂ł̓����X�s�[�h 2
-���Ԑ���[0�`1000(�b)] 1000�b
-���@���C�t�|�C���g[1�`99] 5
-�N���A�[���̃��b�Z�[�W �u�X�e�[�W�N���A�[�I�I �v
-�Q�[���I�[�o�[���̃��b�Z�[�W �uGAME OVER�v
-�p�����[�^�\���A���b�Z�[�W�̃t�H���g�T�C�Y[18�`72] 24
-�p�����[�^�\���@���b�Z�[�W�̃t�H���g�J���[[#0000�`#FFFFFF] #FFFFFF(��)
+何%以上切るとクリアーにするか[1～100] 85%
+敵の数 7
+敵1～7までの動くスピード 2
+時間制限[0～1000(秒)] 1000秒
+自機ライフポイント[1～99] 5
+クリアー時のメッセージ 「ステージクリアー！！ 」
+ゲームオーバー時のメッセージ 「GAME OVER」
+パラメータ表示、メッセージのフォントサイズ[18～72] 24
+パラメータ表示　メッセージのフォントカラー[#0000～#FFFFFF] #FFFFFF(白)
 
-�����Őݒ肵�������ڂ����L�q���Ă������ł��ˁB
-���D�݂ɍ��킹�Đݒ肵�Ă��������B
+自分で設定したい項目だけ記述してもいいですね。
+お好みに合わせて設定してください。
 
-�N���A�[�������ɔ��URL�ɂ��Ă̏ڍא���
-�Enext�X�e�[�W�ւ�����悤�ɂȂ�܂��B
-�@(�N���A�[����ƍD����URL�ɔ�ׂ�悤�ɂȂ��Ă܂��B)
-�@�����͊ȒP��
-<PARAM NAME="gameclear_URL" VALUE="stage2.html">�ȂǂƏ��������ł��B
-�A�h���X�̋L�q�͑��΃p�X�ł���΃p�X�ł����v�ł��B
-<PARAM NAME="gameclear_URL" VALUE="no">�̂悤�Ɂuno�v�Ə����Ă����Ƃ��̋@�\�͒�~��
-�}�E�X�N���b�N����Ɖ�ʂ��S�������Ă��I���ɂȂ�܂��B
-�L�q������Ƃ��́@�X�e�[�W�N���A�[���āA�}�E�X���N���b�N����Ƃ���URL�֎����I�ɔ�т܂��B
-�܂��A���̋L�q���̂����Ȃ��ꍇ�f�t�H���g�ݒ�ł̃A�h���X
-�u./next_stage/index.html�v�֔�Ԃ悤�ɍ��܂����B
-HTML�𓐂݌����Ă��܂��̂����ȏꍇ�͂��̃f�t�H���g�̃A�h���X�𗘗p���ĉ������B
+クリアーした時に飛ぶURLについての詳細説明
+・nextステージへいけるようになります。
+　(クリアーすると好きなURLに飛べるようになってます。)
+　やり方は簡単で
+<PARAM NAME="gameclear_URL" VALUE="stage2.html">などと書くだけです。
+アドレスの記述は相対パスでも絶対パスでも大丈夫です。
+<PARAM NAME="gameclear_URL" VALUE="no">のように「no」と書いておくとこの機能は停止し
+マウスクリックすると画面が全部見えてお終いになります。
+記述があるときは　ステージクリアーして、マウスをクリックするとそのURLへ自動的に飛びます。
+また、この記述自体をしない場合デフォルト設定でのアドレス
+「./next_stage/index.html」へ飛ぶように作りました。
+HTMLを盗み見られてしまうのが嫌な場合はこのデフォルトのアドレスを利用して下さい。
 
-��BGM��bgm.wav�Aquicks.mid�ł����AJAVA�A�v���b�g�v���O�������ł�����Đ����邱�Ƃ͐�������Ă��܂���B
-�@BGM��炵�����Ƃ��̓z�[���y�[�W��HTML�t�@�C���uindex.html�v���ɉ��y���Đ�����悤��
-�@�^�O�������̂����S���y�ł����ł��B
-��F<bgsound src="sound/bgm.wav" loop=-1>�@�@�@��WAV�`����BGM���Đ�����ꍇ
-�@�@<bgsound src="sound/quicks.mid" loop=-1>�@ ��MIDI�`����BGM���Đ�����ꍇ
-�@�@<bgsound src="sound/bgm.mp3" loop=-1>�@�@�@��MP3�`����BGM�Ȃ�e�ʂ����Ȃ��ĕ֗��ł��ˁ�
-���Ȃ݂Ɂ@loop=-1�@�ƂȂ��Ă���͖̂������[�v�Đ��̐ݒ�ł��B
+※BGMのbgm.wav、quicks.midですが、JAVAアプレットプログラム内でこれを再生することは推奨されていません。
+　BGMを鳴らしたいときはホームページのHTMLファイル「index.html」内に音楽を再生するように
+　タグを書くのが安全かつ楽でいいです。
+例：<bgsound src="sound/bgm.wav" loop=-1>　　　←WAV形式のBGMを再生する場合
+　　<bgsound src="sound/quicks.mid" loop=-1>　 ←MIDI形式のBGMを再生する場合
+　　<bgsound src="sound/bgm.mp3" loop=-1>　　　←MP3形式のBGMなら容量も少なくて便利ですね♪
+ちなみに　loop=-1　となっているのは無限ループ再生の設定です。
 
-���̃Q�[���͌��\�d���ł�(��
-�Œ�@Pentium2 300MHz
-�o�����Pentium3 500Mhz���炢�͗~�����ł��B
+このゲームは結構重いです(汗
+最低　Pentium2 300MHz
+出来ればPentium3 500Mhzくらいは欲しいです。
 
-���̃v���O�����̓t���[�\�t�g�ł��B
-���̃v���O�����E�A�v���b�g���g�p���Đ����������Ȃ�g���u���ɂ��Ă��A
-��҂͈�ؐӔC�𕉂��܂���B
+このプログラムはフリーソフトです。
+このプログラム・アプレットを使用して生じたいかなるトラブルについても、
+作者は一切責任を負いません。
 
-Java ����т��̂ق� Java ���܂ޕW�͂́A�č� Sun Microsystems, Inc.�̏��W�ł��B
-Windows�͕č��}�C�N���\�t�g�Ђ̏��W�ł��B
+Java およびそのほか Java を含む標章は、米国 Sun Microsystems, Inc.の商標です。
+Windowsは米国マイクロソフト社の商標です。
 
-�܂��܂��J���r���̕���������܂���΁A�o�O�Ȃǂ���Ǝv���܂���
-�F�l�̒g�������x���̌��撣���Ă��������Ō�����܂��B
+まだまだ開発途中の部分もありますれば、バグなどあると思いますが
+皆様の暖かいご支援の元頑張っていく所存で御座います。
 ********************************************************************************
-�r�c�v���_�N�V����
-�z�[���y�[�WURL�Fhttp://ikeda.gotdns.com/
-���[���A�h���X�Fikeda_pro@yahoo.co.jp
+池田プロダクション
+ホームページURL：http://ikeda.gotdns.com/
+メールアドレス：ikeda_pro@yahoo.co.jp
 
 
 
-���܂�
+おまけ
 -------------------------------------------------------------------
-�ȉ��͊J���ҁE�z�[���y�[�W�ł̍�i���J��������ւ̏��ł��B
+以下は開発者・ホームページでの作品公開をする方への情報です。
 
-�v���O�����J���҂Ɍ�����
-���R���p�C�����@�ɂ���
-JDK5.0�������[�X����܂������AJDK5.0�ŃR���p�C������ۂɃ\�[�X�t�@�C���Ɏ኱�̏����������K�v�ɂȂ�܂��B
-��������������@�Ƃ��ăR���p�C�����Ɏ��̃I�v�V�������w�肷�邱�ƂŃo�[�W�������w�肵�ẴR���p�C�����\�ł��B
+プログラム開発者に向けて
+■コンパイル方法について
+JDK5.0がリリースされましたが、JDK5.0でコンパイルする際にソースファイルに若干の書き直しが必要になります。
+これを回避する方法としてコンパイル時に次のオプションを指定することでバージョンを指定してのコンパイルが可能です。
 >javac -source 1.3 quicks.java
--source 1.3�Ƃ��邱�ƂŁ@JDK1.3�o�[�W�����ł̃\�[�X�t�@�C���Ƃ��ĕ��@�`�F�b�N�����Ă���܂��B
-�����JDK5.0���g���Ă��Ă��Â��ߋ��̃\�[�X�t�@�C�����R���p�C���\�ł��B
+-source 1.3とつけることで　JDK1.3バージョンでのソースファイルとして文法チェックをしてくれます。
+これでJDK5.0を使っていても古い過去のソースファイルもコンパイル可能です。
 
-�܂��z�[���y�[�W�ȂǂŌ��J����ۂɃ��[�U�[�̕��X���FJavaRuntime5.0���C���X�g�[�����Ă���Ƃ͌���܂���B
-���������ꍇJDK5.0�ŃR���p�C�������t�@�C����ǂݍ��܂��悤�Ǝv���Ă��G���[�ɂȂ�܂��B
-�����ł����قǂ�-source�ɉ������̃I�v�V�������w�肵�܂��傤�B
+またホームページなどで公開する際にユーザーの方々が皆JavaRuntime5.0をインストールしているとは限りません。
+そういう場合JDK5.0でコンパイルしたファイルを読み込ませようと思ってもエラーになります。
+そこでさきほどの-sourceに加え次のオプションも指定しましょう。
 >javac -source 1.3 -target 1.3 *.java
-����Ń\�[�X�t�@�C����JDK1.3�̃��[���Ɋ�Â��ĕ��@�`�F�b�N���s���R���p�C�����ēf���o���t�@�C����
-JavaRuntime1.3�Ή��̂��̂ɂȂ�܂��B
+これでソースファイルをJDK1.3のルールに基づいて文法チェックを行いコンパイルして吐き出すファイルも
+JavaRuntime1.3対応のものになります。
 
 
 
-�z�[���y�[�W�ł̍�i���J�ɂ�������
-��IE�݊��u���E�U�@MSJVM�ŋN������
-����Microsoft���o���Ă����񏃐�JavaRuntime�@�uMicroSoftJVM�v�������Ă����
-����JavaApplet�͐���ɓ��삵�Ȃ����Ƃ�����܂��B
-������������邽�߂ɂ�MicroSoftJVM��؂��Ă��܂���Sun�̏���JVM���_�E�����[�h���Ă���
-�C���X�g�[�����Ă����΂����̂ł����A����IE�ȊO�́@������݊��u���E�U�[�ƌĂ΂��u���E�U����
-�C���^�[�l�b�g�I�v�V������MicroSoftJVM��؂��Ă��@�݊��u���E�U�[�����ł�MicroSoftJVM���g���Ă��܂��ꍇ������܂��B
-�������������i�Ƃ��Ď��̕��@������܂��B
+ホームページでの作品公開にあたって
+■IE互換ブラウザ　MSJVMで起こる問題
+かつてMicrosoftが出していた非純正JavaRuntime　「MicroSoftJVM」が動いていると
+今のJavaAppletは正常に動作しないことがあります。
+これを解決するためにはMicroSoftJVMを切ってしまってSunの純正JVMをダウンロードしてきて
+インストールしておけばいいのですが、純正IE以外の　いわゆる互換ブラウザーと呼ばれるブラウザだと
+インターネットオプションでMicroSoftJVMを切っても　互換ブラウザー内部ではMicroSoftJVMを使ってしまう場合があります。
+これを回避する手段として次の方法があります。
 
-1.�X�^�[�g�{�^�����N���b�N���A�u�t�@�C�������w�肵�Ď��s�v���N���b�N���܂��B 
-2.�u�t�@�C�������w�肵�Ď��s�v�E�B���h�E���\�������̂ŁA�u���O�v�� regsvr32 /u msjava.dll �Ɠ��͂��āuOK�v���N���b�N���܂��B 
-3.�uRegSvr32�v�_�C�A���O�ɁuDllUnregisterServer in msjava.dll succeeded.�v�ƕ\�������̂ŁA�uOK�v�{�^�����N���b�N���ĕ��܂��B���̒ʂ�\������Ȃ��ꍇ�͓��͊ԈႢ���Ȃ����m�F���ĉ������B 
-4.�c�[�����C���^�[�l�b�g�I�v�V�������N���b�N���܂��B 
-5.�u�C���^�[�l�b�g�I�v�V�����v�E�B���h�E���\�������̂ŁA�u�ڍאݒ�v�^�u���N���b�N���܂��B 
-6.�uJava (Sun)�v�̃J�e�S���ɂ���u<applet> �� Java 2 v1.x.x ���g�p�i�ċN�����K�v�j�v���N���b�N���ă`�F�b�N�����܂��B 
-7.�݊��u���E�U�iSleipnir�Ƃ��j ����x�I�����A�ċN������ΐݒ芮���ł��B 
+1.スタートボタンをクリックし、「ファイル名を指定して実行」をクリックします。 
+2.「ファイル名を指定して実行」ウィンドウが表示されるので、「名前」に regsvr32 /u msjava.dll と入力して「OK」をクリックします。 
+3.「RegSvr32」ダイアログに「DllUnregisterServer in msjava.dll succeeded.」と表示されるので、「OK」ボタンをクリックして閉じます。この通り表示されない場合は入力間違いがないか確認して下さい。 
+4.ツール＞インターネットオプションをクリックします。 
+5.「インターネットオプション」ウィンドウが表示されるので、「詳細設定」タブをクリックします。 
+6.「Java (Sun)」のカテゴリにある「<applet> に Java 2 v1.x.x を使用（再起動が必要）」をクリックしてチェックを入れます。 
+7.互換ブラウザ（Sleipnirとか） を一度終了し、再起動すれば設定完了です。 
 
-�Ȃ��Aregsvr32 /u msjava.dll �����s����� Microsoft �А��̃v���O�C���͎g���Ȃ��Ȃ�܂����A
-�ēx�g����悤�ɂ������ꍇ�� regsvr32 msjava.dll �����s���܂��B
+なお、regsvr32 /u msjava.dll を実行すると Microsoft 社製のプラグインは使われなくなりますが、
+再度使えるようにしたい場合は regsvr32 msjava.dll を実行します。
 
-�z�[���y�[�W�Ō��J���Ă��@���[�U�[�̕��X����u��ʂ��D�F�ł��B�v�u�����܂���v�Ƃ������ӌ���������
-�Q�l�ɂ��ĉ������B
-��{�I�ɑΏ����ׂ����͎��̂悤�ȍ��ڂ�����܂��B
+ホームページで公開しても　ユーザーの方々から「画面が灰色です。」「動きません」といった意見がきたら
+参考にして下さい。
+基本的に対処すべき問題は次のような項目があります。
 
-�E�o����Ώ���IE���g���Ă��炤
-�ESun������JVM���_�E�����[�h���ăC���X�g�[�����Ă��炤
-�E�C���^�[�l�b�g�I�v�V������MicroSoftJVM�͎g�킸��Sun����JVM���g���ݒ�ɂ���
-�E�݊��u���E�U�[���g���Ȃ�@��ŋ������Ώ��@������
+・出来れば純正IEを使ってもらう
+・Sun純正のJVMをダウンロードしてインストールしてもらう
+・インターネットオプションでMicroSoftJVMは使わずにSun純正JVMを使う設定にする
+・互換ブラウザーを使うなら　上で挙げた対処法を試す
 
