@@ -41,7 +41,7 @@ public class Quicks extends Applet implements KeyListener, Runnable {
 	/** クリアー面積 何%切るとクリアーになるか */
 	int clearRate = 85;
 	/** フレームレート 秒間何度画面を再描画更新するか */
-	public int frameLate = 30;
+	public int frameLate = 60;
 	/** 切り取り中の音 */
 	public AudioClip cutSound;
 	/** 囲み完了音 */
@@ -1140,7 +1140,7 @@ public class Quicks extends Applet implements KeyListener, Runnable {
 class TimeManager implements Runnable {
 
 	private volatile Thread blinker;
-	private volatile boolean suspended = false;
+	private volatile boolean suspended;
 
 	public void start() {
 		blinker = new Thread(this);
@@ -1175,23 +1175,26 @@ class TimeManager implements Runnable {
 
 	public void run() {
 		Thread thisThread = Thread.currentThread();
+		long baseMs = System.currentTimeMillis();
+		Quicks q = Quicks.INSTANCE;
 		while (blinker == thisThread) {
-			try {
-				if (! suspended) {
-					if (! Quicks.INSTANCE.isGamedOver
-							&& ! Quicks.INSTANCE.hasClearImage) {
-						if (! Quicks.INSTANCE.isHurryUp) {// 時間制限そろそろやヴぁいフラグがまだ立ってない状態で
-							if (Quicks.INSTANCE.mainTime < 60) {// 制限時間が残り60秒を切ったら
-								Quicks.INSTANCE.isHurryUp = true;// 時間制限そろそろやヴぁいフラグを立てる
-							}
-						}
-						Quicks.INSTANCE.mainTime--;// 時間を一秒減らす
+			if (! suspended) {
+				if (! q.isGamedOver && ! q.hasClearImage) {
+					if (! q.isHurryUp && q.mainTime < 60) {
+						// 時間制限そろそろやヴぁいフラグがまだ立ってない状態で
+						// 制限時間が残り60秒を切ったら
+						// 時間制限そろそろやヴぁいフラグを立てる
+						q.isHurryUp = true;
 					}
+
+					// 時間を減らす
+					long now = System.currentTimeMillis();
+					q.mainTime = q.timeLimit - (int)((now - baseMs) / 1000L);
 				}
-				Thread.sleep(1000);
+			}
+			try {
+				Thread.sleep(100);
 			} catch (InterruptedException ignore) {
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 	}
@@ -1239,20 +1242,31 @@ class EnemyManager implements Runnable {
 
 	public void run() {
 		Thread thisThread = Thread.currentThread();
-		long waitMs = 1000L / Quicks.INSTANCE.frameLate;
+
+		Enemy[] teki = Quicks.INSTANCE.teki;
+
+		// 処理遅延時間 つまり、フレームレートの設定
+		long waitNs = Math.round(1000000000.0d / Quicks.INSTANCE.frameLate);
+		long prev = System.nanoTime();
+
 		while (blinker == thisThread) {
-			try {
-				if (! suspended) {
-					for (Enemy e : Quicks.INSTANCE.teki) {
-						e.run();
+			if (! suspended) {
+				long now = System.nanoTime();
+				if (now - prev >= waitNs) {
+					prev = now;
+					try {
+						for (Enemy e : teki) {
+							e.run();
+						}
+					} catch (Exception ex) {
+						ex.printStackTrace();
 					}
 				}
+			}
 
-				// 処理遅延時間 つまり、フレームレートの設定
-				Thread.sleep(waitMs);
+			try {
+				Thread.sleep(1);
 			} catch (InterruptedException ignore) {
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 	}
